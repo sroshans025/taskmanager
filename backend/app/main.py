@@ -29,11 +29,4 @@ app.include_router(tasks.router, prefix="/api/tasks", tags=["tasks"])
 frontend_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "frontend")
 os.makedirs(frontend_dir, exist_ok=True)
 
-app.mount("/static", StaticFiles(directory=frontend_dir), name="static")
-
-@app.get("/")
-async def serve_frontend():
-    index_file = os.path.join(frontend_dir, "index.html")
-    if os.path.exists(index_file):
-        return FileResponse(index_file)
-    return {"message": "Frontend not found"}
+app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="static")
