@@ -72,16 +72,6 @@ pytest
 ```
 This will automatically create a temporary test database, run through the authentication and task CRUD scenarios, and clean up afterwards.
 
-## Deployment
-
-This project includes a `Dockerfile` for easy containerization.
-To run with Docker:
-```bash
-cd backend
-docker build -t fastapi-task-manager .
-docker run -p 8000:8000 --env-file .env fastapi-task-manager
-```
-For platforms like **Render** or **Railway**:
 1. Connect your repository.
 2. Set your Root Directory to `backend` (if supported) or customize your build/start commands.
 3. Start command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
