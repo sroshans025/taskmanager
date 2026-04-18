@@ -8,7 +8,10 @@ from app.api.endpoints import auth, tasks
 from app.db.session import engine, Base
 
 # Create database tables
-Base.metadata.create_all(bind=engine)
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception as e:
+    print(f"Warning: Database creation skipped or failed. {e}")
 
 app = FastAPI(title="FastAPI Task Manager")
 
