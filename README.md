@@ -55,24 +55,6 @@ Features robust JWT authentication, comprehensive Task CRUD operations scoped pe
    ```bash
    cp .env.example .env
    ```
+<img width="1866" height="948" alt="Screenshot 2026-04-18 221134" src="https://github.com/user-attachments/assets/80fabe69-d73a-43eb-9775-b91464662a79" />
+<img width="1866" height="950" alt="Screenshot 2026-04-18 221103" src="https://github.com/user-attachments/assets/f7ea2fba-c5fb-428d-8cb3-ee54de2355ec" />
 
-## Running the Application Locally
-
-From the `backend` directory, start the Uvicorn server:
-```bash
-uvicorn app.main:app --reload
-```
-The application will serve the frontend at `http://localhost:8000` and the interactive API documentation at `http://localhost:8000/docs`.
-
-## Running Tests
-
-This project includes a suite of unit tests. While your virtual environment is active in the `backend` directory, run:
-```bash
-pytest
-```
-This will automatically create a temporary test database, run through the authentication and task CRUD scenarios, and clean up afterwards.
-
-1. Connect your repository.
-2. Set your Root Directory to `backend` (if supported) or customize your build/start commands.
-3. Start command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-4. Ensure you set the `SECRET_KEY` environment variable in the deployment dashboard.
