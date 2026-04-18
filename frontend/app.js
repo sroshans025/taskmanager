@@ -1,4 +1,4 @@
-const API_URL = '/api';
+const API_URL = window.location.protocol === 'file:' ? 'http://127.0.0.1:8000/api' : '/api';
 
 // DOM Elements
 const authSection = document.getElementById('auth-section');
@@ -77,7 +77,11 @@ async function apiCall(endpoint, method = 'GET', body = null, isAuthForm = false
         const data = response.status === 204 ? null : await response.json();
         
         if (!response.ok) {
-            throw new Error(data?.detail || 'An error occurred');
+            let errorMsg = data?.detail;
+            if (Array.isArray(errorMsg)) {
+                errorMsg = errorMsg.map(e => e.msg).join(', ');
+            }
+            throw new Error(errorMsg || 'An error occurred');
         }
         return data;
     } catch (error) {
