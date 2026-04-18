@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI Task Manager</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Auth Section -->
+        <div id="auth-section" class="glass-panel">
+            <h1 class="glow-text">Task Manager</h1>
+            
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+                <button class="tab-btn" onclick="switchTab('register')">Register</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form active">
+                <div class="input-group">
+                    <input type="text" id="login-username" required placeholder=" ">
+                    <label for="login-username">Username</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="login-password" required placeholder=" ">
+                    <label for="login-password">Password</label>
+                </div>
+                <button type="submit" class="btn primary-btn">Login</button>
+                <div id="login-error" class="error-msg"></div>
+            </form>
+
+            <!-- Register Form -->
+            <form id="register-form" class="auth-form">
+                <div class="input-group">
+                    <input type="text" id="reg-username" required placeholder=" ">
+                    <label for="reg-username">Username</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="reg-email" required placeholder=" ">
+                    <label for="reg-email">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="reg-password" required placeholder=" ">
+                    <label for="reg-password">Password</label>
+                </div>
+                <button type="submit" class="btn primary-btn">Register</button>
+                <div id="reg-error" class="error-msg"></div>
+            </form>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" class="glass-panel hidden">
+            <header class="dashboard-header">
+                <h2>My Tasks</h2>
+                <button id="logout-btn" class="btn outline-btn">Logout</button>
+            </header>
+
+            <div class="task-input-area">
+                <form id="task-form">
+                    <input type="text" id="task-title" required placeholder="What needs to be done?">
+                    <input type="text" id="task-desc" placeholder="Description (optional)">
+                    <button type="submit" class="btn primary-btn">Add Task</button>
+                </form>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="active">Active</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+
+            <ul id="task-list" class="task-list">
+                <!-- Tasks will be injected here -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
